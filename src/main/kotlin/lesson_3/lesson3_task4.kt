@@ -12,4 +12,3 @@ fun main() {
     moveNumber = "2"
     println("$stepWhereFrom - $stepWhereTo; $moveNumber")
 }
-
