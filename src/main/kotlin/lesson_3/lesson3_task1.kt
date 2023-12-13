@@ -1,15 +1,10 @@
 package lesson_3
 
 fun main() {
-    val greetingForDay = "Добрый день"
-    val greetingForNight = "Добрый вечер"
     val userName = "Пользователь"
+    var greeting = "Добрый день, $userName!"
+    println(greeting)
 
-    var greetingWithUserName: String
-
-    greetingWithUserName = "$greetingForDay, $userName!"
-    println(greetingWithUserName)
-
-    greetingWithUserName = "$greetingForNight, $userName!"
-    println(greetingWithUserName)
+    greeting = "Добрый вечер, $userName!"
+    println(greeting)
 }
