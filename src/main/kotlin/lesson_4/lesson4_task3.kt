@@ -1,11 +1,18 @@
 package lesson_4
 
 fun main() {
+    val weatherIsSunny = true
+    val tentIsOpened = true
+    val airHumidity = 20
+    val currentSeason = "winter"
+
     println(
-        "Благоприятные ли условия сейчас для роста бобовых? ${(WEATHER_IS_SUNNY == true) && 
-                    (TENT_IS_OPENED == true) &&
-                    (AIR_HUMIDITY == 20) &&
-                    (CURRENT_SEASON != "winter")}"
+        "Благоприятные ли условия сейчас для роста бобовых? ${
+            (weatherIsSunny == WEATHER_IS_SUNNY) &&
+                    (tentIsOpened == TENT_IS_OPENED) &&
+                    (airHumidity == AIR_HUMIDITY) &&
+                    (currentSeason != CURRENT_SEASON)
+        }"
     )
 }
 
