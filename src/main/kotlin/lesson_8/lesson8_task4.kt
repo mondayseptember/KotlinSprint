@@ -11,19 +11,18 @@ fun main() {
     println("Напишите название ингредиента, который хотите заменить:")
     val ingredientForReplace = readln()
 
-    for (i in arrayOfIngredients) {
-        if (i == ingredientForReplace) {
-            println("Напишите ингредиент, который хотели бы добавить:")
+    if (ingredientForReplace in arrayOfIngredients) {
+        println("Напишите ингредиент, который хотели бы добавить:")
 
-            val ingredientToAdd = readln()
-            arrayOfIngredients[arrayOfIngredients.indexOf(i)] = ingredientToAdd
+        val ingredientToAdd = readln()
+        arrayOfIngredients[arrayOfIngredients.indexOf(ingredientForReplace)] = ingredientToAdd
 
-            println("Готово! Вы сохранили следующий список:")
-            for (i in arrayOfIngredients) {
-                println(i)
-            }
-            return
+        println("Готово! Вы сохранили следующий список:")
+        for (i in arrayOfIngredients) {
+            println(i)
         }
+        return
     }
     println("Ингредиента нет в списке")
 }
+
