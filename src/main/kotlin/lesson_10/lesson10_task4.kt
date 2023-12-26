@@ -7,8 +7,7 @@ fun main() {
         val computerResult = throwDice()
         println("Кости бросает Пользователь. Количество очков: $userResult")
         println("Кости бросает Компьютер. Количество очков: $computerResult")
-        printGameResult(userResult, computerResult)
-        if (userResult > computerResult) numberOfWin++
+        numberOfWin += printGameResult(userResult, computerResult)
 
         println("Хотите бросить кости еще раз? Введите Да или Нет")
     } while (readln().equals("да", ignoreCase = true))
@@ -19,10 +18,21 @@ fun throwDice(): Int {
     return (1..6).random()
 }
 
-fun printGameResult(userResult: Int, computerResult: Int) {
+fun printGameResult(userResult: Int, computerResult: Int): Int {
     when (true) {
-        (userResult > computerResult) -> println("Победило человечество")
-        (userResult < computerResult) -> println("Победила машина")
-        else -> println("Ничья")
+        (userResult > computerResult) -> {
+            println("Победило человечество")
+            return 1
+        }
+
+        (userResult < computerResult) -> {
+            println("Победила машина")
+            return 0
+        }
+
+        else -> {
+            println("Ничья")
+            return 0
+        }
     }
 }
