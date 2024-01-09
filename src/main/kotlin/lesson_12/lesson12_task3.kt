@@ -1,9 +1,11 @@
 package lesson_12
 
+const val ZERO_KELVIN = 273.15
+
 class DailyWeather3(dayTemperature: Int, nightTemperature: Int, precipitation: Boolean) {
 
-    var dayTemperature = (dayTemperature - 273.15).toInt()
-    var nightTemperature = (nightTemperature - 273.15).toInt()
+    var dayTemperature = (dayTemperature - ZERO_KELVIN).toInt()
+    var nightTemperature = (nightTemperature - ZERO_KELVIN).toInt()
     var precipitation = precipitation
 
     fun printInfo() {
