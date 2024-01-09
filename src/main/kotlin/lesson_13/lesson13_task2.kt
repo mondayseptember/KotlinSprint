@@ -1,6 +1,6 @@
 package lesson_13
 
-class PhoneBook2(
+class Contact2(
     val name: String,
     val phoneNumber: Long,
     val company: String? = null,
@@ -11,6 +11,6 @@ class PhoneBook2(
 }
 
 fun main() {
-    val number = PhoneBook2("Elena", 83474892367)
+    val number = Contact2("Elena", 83474892367)
     number.printInfo()
 }
