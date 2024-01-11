@@ -1,9 +1,9 @@
 package lesson_13
 
 class Contact4(
-    val name: String,
-    val phoneNumber: String?,
-    val company: String? = null,
+    val name: String = readln(),
+    val phoneNumber: String? = readln(),
+    val company: String? = readln(),
 )
 
 class ContactBook {
@@ -20,22 +20,22 @@ class ContactBook {
 
     fun printContacts() {
         contactList.forEach {
-            println("${it.name}, ${it.phoneNumber}, ${it.company}")
+            when (it.company.isNullOrEmpty()) {
+                true -> println("${it.name}, ${it.phoneNumber}, null")
+                false -> println("${it.name}, ${it.phoneNumber}, ${it.company}")
+            }
         }
     }
 }
 
 fun main() {
-    val contact1 = Contact4("Николай", null)
-    val contact2 = Contact4("Ольга", "", "Bombora")
-    val contact3 = Contact4("Андрей", "89375672298", "Imaginarium")
-    val contact4 = Contact4("Алина", "89375672293")
-
+    val contactList = listOf(
+        Contact4()
+    )
     val contactBook = ContactBook()
-    contactBook.addContact(contact1)
-    contactBook.addContact(contact2)
-    contactBook.addContact(contact3)
-    contactBook.addContact(contact4)
 
+    for (i in contactList) {
+        contactBook.addContact(i)
+    }
     contactBook.printContacts()
 }
