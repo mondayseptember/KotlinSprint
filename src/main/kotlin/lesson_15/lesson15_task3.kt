@@ -1,11 +1,11 @@
 package lesson_15
 
-abstract class Forum {
+abstract class ForumUser {
     abstract fun readMessage()
     abstract fun writeMessage()
 }
 
-class User : Forum() {
+class User : ForumUser() {
     override fun readMessage() {
         println("прочитать сообщение")
     }
@@ -15,7 +15,7 @@ class User : Forum() {
     }
 }
 
-class Admin : Forum() {
+class Admin : ForumUser() {
     override fun readMessage() {
         println("прочитать сообщение")
     }
