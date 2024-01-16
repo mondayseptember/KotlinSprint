@@ -1,14 +1,14 @@
 package lesson_16
 
-class Circle(private val radius: Int) {
-    private val pi = 3.14
+private const val PI = 3.14
 
+class Circle(private val radius: Int) {
     fun circumference(): Double {
-        return 2 * pi * radius
+        return 2 * PI * radius
     }
 
     fun area(): Double {
-        return pi * radius * radius
+        return PI * radius * radius
     }
 }
 
