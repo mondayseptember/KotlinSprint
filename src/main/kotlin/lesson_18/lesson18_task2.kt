@@ -1,32 +1,36 @@
 package lesson_18
 
-open class Dice {
+abstract class Dice {
 
-    open fun diceRoll() = ""
+    abstract var diceSide: Int
+    abstract fun diceRoll(): String
+}
 
-    class FourthSidedDice : Dice() {
-        override fun diceRoll(): String {
-            return "Кубик с 4 гранями: ${(1..4).random()}"
-        }
+class FourthSidedDice : Dice() {
+    override var diceSide = 4
+    override fun diceRoll(): String {
+        return "Кубик с $diceSide гранями: ${(1..diceSide).random()}"
     }
+}
 
-    class SixSidedDice : Dice() {
-        override fun diceRoll(): String {
-            return "Кубик с 6 гранями: ${(1..6).random()}"
-        }
+class SixSidedDice : Dice() {
+    override var diceSide = 6
+    override fun diceRoll(): String {
+        return "Кубик с $diceSide гранями: ${(1..diceSide).random()}"
     }
+}
 
-    class EighthSidedDice : Dice() {
-        override fun diceRoll(): String {
-            return "Кубик с 8 гранями: ${(1..8).random()}"
-        }
+class EighthSidedDice : Dice() {
+    override var diceSide = 8
+    override fun diceRoll(): String {
+        return "Кубик с $diceSide гранями: ${(1..diceSide).random()}"
     }
 }
 
 fun main() {
-    val four: Dice = Dice.FourthSidedDice()
-    val six: Dice = Dice.SixSidedDice()
-    val eight: Dice = Dice.EighthSidedDice()
+    val four: Dice = FourthSidedDice()
+    val six: Dice = SixSidedDice()
+    val eight: Dice = EighthSidedDice()
 
     val arrayOfDices: Array<Dice> = arrayOf(four, six, eight)
 
