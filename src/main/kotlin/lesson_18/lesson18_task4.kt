@@ -1,39 +1,33 @@
 package lesson_18
 
-open class Box {
+abstract class Box {
 
-    open fun calculationAreaOfSurface() = 0
+    abstract fun calculationAreaOfSurface(): Int
+    abstract val length: Int
+}
 
-    class RectangularBox(
-        val sideOfBox: Rectangular,
-    ) : Box() {
-        override fun calculationAreaOfSurface(): Int {
-            return 2 * (
-                sideOfBox.length * sideOfBox.width +
-                    sideOfBox.width * sideOfBox.height + sideOfBox.length * sideOfBox.height
-                )
-        }
-    }
-
-    class СubeBox(
-        val sideOfBox: Int,
-    ) : Box() {
-        override fun calculationAreaOfSurface(): Int {
-            return 6 * sideOfBox * sideOfBox
-        }
+class RectangularBox(
+    override val length: Int,
+    val width: Int,
+    val height: Int,
+) : Box() {
+    override fun calculationAreaOfSurface(): Int {
+        return 2 * (length * width + width * height + length * height)
     }
 }
 
-class Rectangular(
-    val length: Int,
-    val width: Int,
-    val height: Int,
-)
+class CubeBox(
+    override val length: Int,
+) : Box() {
+    override fun calculationAreaOfSurface(): Int {
+        return 6 * length * length
+    }
+}
 
 fun main() {
-    val rectangularParcel: Box = Box.RectangularBox(Rectangular(1, 2, 3))
+    val rectangularParcel: Box = RectangularBox(1, 2, 3)
     println(rectangularParcel.calculationAreaOfSurface())
 
-    val cubeParcel: Box = Box.СubeBox(3)
+    val cubeParcel: Box = CubeBox(3)
     println(cubeParcel.calculationAreaOfSurface())
 }
