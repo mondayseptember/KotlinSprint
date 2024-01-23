@@ -2,6 +2,9 @@ package lesson_18
 
 abstract class Tamagotchi {
 
+    abstract val food: String
+    abstract val name: String
+
     abstract fun play(): String
 
     abstract fun sleep(): String
@@ -10,9 +13,10 @@ abstract class Tamagotchi {
 }
 
 class Fox(
-    val name: String,
-    private val food: String = "ягоды",
+    override val name: String,
 ) : Tamagotchi() {
+
+    override val food: String = "ягоды"
     override fun play(): String {
         return "$name - играет"
     }
@@ -27,9 +31,10 @@ class Fox(
 }
 
 class Dog(
-    val name: String,
-    private val food: String = "кости",
+    override val name: String,
 ) : Tamagotchi() {
+
+    override val food: String = "кости"
     override fun play(): String {
         return "$name - играет"
     }
@@ -44,9 +49,10 @@ class Dog(
 }
 
 class Cat(
-    val name: String,
-    private val food: String = "рыбу",
+    override val name: String,
 ) : Tamagotchi() {
+
+    override val food: String = "рыбу"
     override fun play(): String {
         return "$name - играет"
     }
