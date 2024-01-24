@@ -7,32 +7,22 @@ class Goods(
 ) {
 
     fun goodsInfo() {
-        println("название товара: $name, id: $id, категория: ${category.getCategoryName()}")
+        println("название товара: $name, id: $id, категория: ${category.getName()}")
     }
 }
 
-enum class Category {
-    CLOTHES {
-        override fun getCategoryName(): String {
-            return "одежда"
-        }
-    },
-    STATIONERY {
-        override fun getCategoryName(): String {
-            return "канцелярские товары"
-        }
-    },
-    OTHER {
-        override fun getCategoryName(): String {
-            return "разное"
-        }
-    };
+enum class Category(val categoryName: String) {
+    CLOTHES("одежда"),
+    STATIONERY("канцелярские товары"),
+    OTHER("разное");
 
-    abstract fun getCategoryName(): String
+    fun getName(): String {
+        return categoryName
+    }
 }
 
 fun main() {
     val item1 = Goods("конструктор", 1223, Category.OTHER).goodsInfo()
-    val item2 = Goods("ручка", 1223, Category.STATIONERY).goodsInfo()
-    val item3 = Goods("худи", 1223, Category.CLOTHES).goodsInfo()
+    val item2 = Goods("ручка", 1224, Category.STATIONERY).goodsInfo()
+    val item3 = Goods("худи", 1225, Category.CLOTHES).goodsInfo()
 }
