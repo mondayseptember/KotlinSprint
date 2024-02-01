@@ -11,6 +11,5 @@ fun main() {
 }
 
 fun File.addWordToFile(word: String) {
-    appendText(word.lowercase())
-    appendText("\n")
+    this.writeText(word.lowercase() + this.readText())
 }
