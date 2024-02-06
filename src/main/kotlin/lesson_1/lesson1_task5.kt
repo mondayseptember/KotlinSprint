@@ -1,22 +1,13 @@
 package lesson_1
 
 fun main() {
-    var sec = 6480
-    val hours = sec / 3600
-    val min = (sec - hours * 3600) / 60
-    sec = sec - hours * 3600 - min * 60
+    val spaceTimeInSec = 6480
+    val secondsToHours = 3600
+    val secondsToMinutes = 60
 
-    val hh = if (hours < 10) {
-        "0" + "$hours"
-    } else "$hours"
+    val hoursInSpace = spaceTimeInSec / secondsToHours
+    val minInSpace = (spaceTimeInSec - hoursInSpace * secondsToHours) / secondsToMinutes
+    val secInSpace = spaceTimeInSec % secondsToMinutes
 
-    val mm = if (min < 10) {
-        "0" + "$min"
-    } else "$min"
-
-    val ss = if (sec < 10) {
-        "0" + "$sec"
-    } else "$sec"
-
-    println("$hh:$mm:$ss")
+    println(String.format("%02d:%02d:%02d", hoursInSpace, minInSpace, secInSpace))
 }
