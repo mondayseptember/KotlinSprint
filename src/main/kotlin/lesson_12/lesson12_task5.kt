@@ -5,16 +5,16 @@ import kotlin.random.Random
 const val DAYS_NUMBER = 30
 
 class DailyWeather5(
-    var dayTemperature: Int,
-    var nightTemperature: Int,
-    var precipitation: Boolean,
+    val dayTemperature: Int = (10..30).random(),
+    val nightTemperature: Int = (5..20).random(),
+    val precipitation: Boolean = Random.nextBoolean(),
 )
 
 fun main() {
     val monthWeatherList = mutableListOf<DailyWeather5>()
 
     for (i in 1..DAYS_NUMBER) {
-        monthWeatherList += DailyWeather5((10..30).random(), (5..20).random(), Random.nextBoolean())
+        monthWeatherList += DailyWeather5()
     }
 
     val dayTemperaturesList = monthWeatherList.map { it.dayTemperature }
